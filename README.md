@@ -1,17 +1,17 @@
 # LinkeBot-simplified
-This is an (over)simplified version of LinkeBot's repository
+This is an (over)simplified version of [LinkeBot's repository](https://github.com/Doppia-T/LinkeBot).
 
 
 **A small bot for automating a Linkedin profile**
 
 This is the second attempt of creating a bot capable of managing a LinkedIn profile. It uses [Selenium WebDriver package](https://pypi.org/project/selenium/) and, since it is written for being used with [Mozilla Firefox](https://www.mozilla.org/it/firefox/new/) browser, [GeckoDriver](https://github.com/mozilla/geckodriver/releases).
 
-This bot is designed to get the credentials of the LinkedIn profile from an external `.txt` file so that anyone can change the used profile -or its password - without the need of modifying the source code. Said file has to be put in the same folder with the other LinkeBot's `.py` file.
+This bot is designed to get the credentials of the LinkedIn profile from an external '.txt' file so that anyone can change the used profile -or its password - without the need of modifying the source code. Said file has to be put in the same folder with the other LinkeBot's '.py' file.
 
 
 ## Driver Setup
 
-Linkebot uses `geckodriver` so download the latest driver. 
+Linkebot uses 'geckodriver' so download the latest driver. 
 
 ## Additional requiements setup
 
