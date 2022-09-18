@@ -13,12 +13,13 @@ This bot is designed to get the credentials of the LinkedIn profile from an exte
 
 Linkebot uses 'geckodriver' so download the latest driver. 
 
+
 ## Additional requiements setup
 
 Since Linkebot requires user's credentials and target to operate. You have to setup the credentials in 'LinCred.txt' file and the URL address of the target in 'LinTarg.txt'.
 
 
-# Legal notes
+## Legal notes
 
 **Warnings and disclaimer**
 
