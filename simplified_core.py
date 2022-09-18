@@ -108,7 +108,7 @@ class LinkeBot:
 
         bot.get(target+'recent-activity/')
         try:
-            WebDriverWait(bot, 30).until(EC.presence_of_element_located((By.XPATH, "//img[contains(@class, 'ember-view pv-recent-activity-top-card__member-photo EntityPhoto-circle-5')]"))) # CAMBIARE CON XPATH DELL'IMMAGINE PROFILO
+            WebDriverWait(bot, 30).until(EC.presence_of_element_located((By.XPATH, "//img[contains(@class, 'ember-view pv-recent-activity-top-card__member-photo EntityPhoto-circle-5')]")))
             time.sleep(1)
         except:
             print("Loading is taking too much time!")
@@ -130,3 +130,24 @@ class LinkeBot:
             like_button.click()
             time.sleep(2)
 
+            
+            
+# starts process of getting login credentials
+LinkeUsername = get_LinkeID()
+LinkePassword = get_LinkePSS()
+LinkeTarget = get_LinkeTGT()
+
+
+
+# starts process of logging in with the credentials previously obtained
+TestBot = LinkeBot(LinkeUsername,LinkePassword)
+TestBot.login()
+
+# goes to "target" page
+TestBot.get_target(LinkeTarget)
+
+# goes to the "recent activites" of the target
+TestBot.reach_target(LinkeTarget)
+
+# starts liking posts of the "target"
+TestBot.like_posts()
