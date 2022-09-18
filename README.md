@@ -6,16 +6,16 @@ This is an (over)simplified version of LinkeBot's repository
 
 This is the second attempt of creating a bot capable of managing a LinkedIn profile. It uses [Selenium WebDriver package](https://pypi.org/project/selenium/) and, since it is written for being used with [Mozilla Firefox](https://www.mozilla.org/it/firefox/new/) browser, [GeckoDriver](https://github.com/mozilla/geckodriver/releases).
 
-This bot is designed to get the credentials of the LinkedIn profile from an external `.txt` file so that anyone can change the used profile -or its password - without the need of modifying the source code. Said file has to be put in the same folder with the others LinkeBot's `.py` files.
+This bot is designed to get the credentials of the LinkedIn profile from an external `.txt` file so that anyone can change the used profile -or its password - without the need of modifying the source code. Said file has to be put in the same folder with the other LinkeBot's `.py` file.
 
 
 ## Driver Setup
 
-Linkebot uses `geckodriver` so download the latest driver from following link and set that up inside the `drivers` directory. Change the file name to `geckodriver` or update the `DRIVERNAME` variable inside `settings.py` file.
+Linkebot uses `geckodriver` so download the latest driver from following link and set that up inside the `drivers` directory. 
 
 ## Additional requiements setup
 
-Since Linkebot requires user's credentials and targets to operate. You have to setup the credentials in `LinCred.txt` file.
+Since Linkebot requires user's credentials and target to operate. You have to setup the credentials in `LinCred.txt` file and the URL address of the target in 'LinTarg.txt'.
 
 Sample:
 
