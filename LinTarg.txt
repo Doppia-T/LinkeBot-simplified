@@ -1,0 +1,6 @@
+# ISTRUZIONI
+# Sostituire <INDIRIZZOTARGET> con l'indirizzo internet del profilo social da visualizzare
+# Fare attenzione agli spazi: ce ne deve essere uno dopo il simbolo "=" e nessuno dopo l'indirizzo 
+
+
+profile = <INDIRIZZOTARGET>
