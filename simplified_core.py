@@ -12,6 +12,7 @@ import sys
 import time
 
 
+
 # gets username from an external file called "LinCred"
 # quite raw method of getting the credential from a .txt file
 def get_LinkeID():
@@ -47,3 +48,85 @@ def get_LinkeTGT():
                 spl_tgt_line = tgt_line.split(spl_word,1)[1]
                 LinkeTarget = spl_tgt_line
                 return LinkeTarget
+
+
+            
+# does login with credential taken from external file (more actions in the future)
+class LinkeBot:
+    def __init__(self,username,password):
+        self.username = username
+        self.password = password
+        self.bot = webdriver.Firefox()
+
+
+    def login(self):
+        bot = self.bot
+        bot.get('https://linkedin.com/')
+
+        # waits until the element "session_password" is displayed before starting to insert the profile credentials for 
+        # the access (plus, it waits for a second for more suspense)
+        try:
+            WebDriverWait(bot, 30).until(EC.presence_of_element_located((By.ID, 'session_password')))
+            time.sleep(1)
+        except:
+            print("Loading is taking too much time!")
+
+        username = bot.find_element_by_id('session_key')
+        password = bot.find_element_by_id('session_password')
+        username.clear()
+        password.clear()
+        username.send_keys(self.username)
+        password.send_keys(self.password)
+        password.send_keys(Keys.RETURN)
+
+
+    def get_target(self, target):
+        bot = self.bot
+
+        # waits until the profile picture in the main page - which contains the particular class 'feed-identity ...' - is 
+        # displayed before starting the process of going to the page of the "taget" (plus, it waits for a second for more suspense)
+        try:
+            WebDriverWait(bot, 30).until(EC.presence_of_element_located((By.XPATH, "//img[contains(@class, 'feed-identity-module__member-photo EntityPhoto-circle-5 lazy-image ember-view')]")))
+            time.sleep(1)
+        except:
+            print("Loading is taking too much time!")
+        
+        bot.get(target)
+
+
+    def reach_target(self, target):
+        bot = self.bot
+
+        # waits until the profile picture in the profile page - which contains the particular class 'pv-top-card-profile ...' - is 
+        # displayed before starting the process of going to the page listing the "recent activities" of the "taget" (plus, it waits 
+        # for a second for more suspense)
+        try:
+            WebDriverWait(bot, 30).until(EC.presence_of_element_located((By.XPATH, "//img[contains(@class, 'pv-top-card-profile-picture__image pv-top-card-profile-picture__image--show ember-view')]")))
+            time.sleep(1)
+        except:
+            print("Loading is taking too much time!")
+
+        bot.get(target+'recent-activity/')
+        try:
+            WebDriverWait(bot, 30).until(EC.presence_of_element_located((By.XPATH, "//img[contains(@class, 'ember-view pv-recent-activity-top-card__member-photo EntityPhoto-circle-5')]"))) # CAMBIARE CON XPATH DELL'IMMAGINE PROFILO
+            time.sleep(1)
+        except:
+            print("Loading is taking too much time!")
+
+
+    def like_posts(self):
+        bot = self.bot
+        posts_column_container = WebDriverWait(bot, 30).until(EC.presence_of_element_located((By.ID, "main")))
+        posts_column = posts_column_container.find_element(By.XPATH, "//div[contains(@class, 'pv-recent-activity-detail')]")
+        posts = posts_column.find_elements(By.XPATH, "//div[contains(@class, 'ember-view') and contains(@class, 'occludable-update')]")
+
+        # counts and shows the number of posts published in "Recent Activities" by the target
+        posts_published = len(posts)
+        print("LinkeBot found "+str(posts_published)+" posts published by the target.")
+
+        # clicks the "like" button for every unclicked post published by the target
+        for p in range(posts_published):
+            like_button = bot.find_element(By.XPATH, "//button[contains(@class, 'social-actions-button') and contains(@aria-pressed, 'false')]") 
+            like_button.click()
+            time.sleep(2)
+
