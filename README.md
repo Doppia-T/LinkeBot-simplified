@@ -11,7 +11,7 @@ This bot is designed to get the credentials of the LinkedIn profile from an exte
 
 ## Driver Setup
 
-Linkebot uses 'geckodriver' so download the latest driver. 
+Linkebot uses 'geckodriver' so download the [latest driver](https://github.com/mozilla/geckodriver/releases). 
 
 
 ## Additional requiements setup
