@@ -1,6 +1,6 @@
-# ISTRUZIONI
-# Sostituire <INDIRIZZOTARGET> con l'indirizzo internet del profilo social da visualizzare
-# Fare attenzione agli spazi: ce ne deve essere uno dopo il simbolo "=" e nessuno dopo l'indirizzo 
+# INSTRUCTIONS
+# Substitute <TARGETADDRESS> with the internet address of the social profile to be viewed
+# Pay attention to spaces: there must be one after the "=" symbol and none after your credentials
 
 
-profile = <INDIRIZZOTARGET>
+profile = <TARGETADDRESS>
