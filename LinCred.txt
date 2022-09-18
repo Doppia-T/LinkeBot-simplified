@@ -1,6 +1,6 @@
 # INSTRUCTIONS
 # Substitute <EMAILADDRESS> AND <ACCESSPASSWORD> with your social login credentials
-# Pay attention to spaces: there must be **one** after the "=" symbol and none after your credentials
+# Pay attention to spaces: there must be one after the "=" symbol and none after your credentials
 
 
 id = <EMAILADDRESS>
