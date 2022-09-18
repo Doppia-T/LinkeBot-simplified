@@ -11,44 +11,12 @@ This bot is designed to get the credentials of the LinkedIn profile from an exte
 
 ## Driver Setup
 
-Linkebot uses `geckodriver` so download the latest driver from following link and set that up inside the `drivers` directory. 
+Linkebot uses `geckodriver` so download the latest driver. 
 
 ## Additional requiements setup
 
-Since Linkebot requires user's credentials and target to operate. You have to setup the credentials in `LinCred.txt` file and the URL address of the target in 'LinTarg.txt'.
+Since Linkebot requires user's credentials and target to operate. You have to setup the credentials in 'LinCred.txt' file and the URL address of the target in 'LinTarg.txt'.
 
-Sample:
-
-```yaml
-# linkebot/config/linkebot.yaml
-
-email: myemail@email.com
-password: mystrongpassword
-```
-
-For the target setup, edit the `config/linkebot.yaml` file.
-
-```yaml
-targets:
-  - "in/alice"
-  - "company/apple" # Company scraping TBD
-```
-
-## Run
-
-To run Linkebot use following commands:
-
-```bash
-python main.py
-```
-
-## RUN GUI
-
-Run the GUI application using following command from the root directory.
-
-```
-python -m linkebot.UI
-```
 
 # Legal notes
 
