@@ -1,5 +1,5 @@
 # LinkeBot-simplified
-This is an (over)simplified version of [LinkeBot's repository](https://github.com/Doppia-T/LinkeBot).
+This is an (over)simplified version of [LinkeBot](https://github.com/Doppia-T/LinkeBot).
 
 
 **A small bot for automating a Linkedin profile**
