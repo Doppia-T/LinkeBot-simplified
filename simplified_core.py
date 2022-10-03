@@ -12,7 +12,6 @@ import sys
 import time
 
 
-
 # gets username from an external file called "LinCred"
 # quite raw method of getting the credential from a .txt file
 def get_LinkeID():
@@ -50,7 +49,6 @@ def get_LinkeTGT():
                 return LinkeTarget
 
 
-            
 # does login with credential taken from external file (more actions in the future)
 class LinkeBot:
     def __init__(self,username,password):
@@ -80,7 +78,7 @@ class LinkeBot:
         password.send_keys(Keys.RETURN)
 
 
-    def get_target(self, target):
+    def reach_target(self, target):
         bot = self.bot
 
         # waits until the profile picture in the main page - which contains the particular class 'feed-identity ...' - is 
@@ -94,7 +92,7 @@ class LinkeBot:
         bot.get(target)
 
 
-    def reach_target(self, target):
+    def get_target_activities(self, target):
         bot = self.bot
 
         # waits until the profile picture in the profile page - which contains the particular class 'pv-top-card-profile ...' - is 
@@ -130,13 +128,12 @@ class LinkeBot:
             like_button.click()
             time.sleep(2)
 
-            
-            
+
+
 # starts process of getting login credentials
 LinkeUsername = get_LinkeID()
 LinkePassword = get_LinkePSS()
 LinkeTarget = get_LinkeTGT()
-
 
 
 # starts process of logging in with the credentials previously obtained
@@ -144,10 +141,10 @@ TestBot = LinkeBot(LinkeUsername,LinkePassword)
 TestBot.login()
 
 # goes to "target" page
-TestBot.get_target(LinkeTarget)
+TestBot.reach_target(LinkeTarget)
 
 # goes to the "recent activites" of the target
-TestBot.reach_target(LinkeTarget)
+TestBot.get_target_activities(LinkeTarget)
 
 # starts liking posts of the "target"
 TestBot.like_posts()
