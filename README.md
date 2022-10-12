@@ -27,4 +27,4 @@ Since Linkebot requires user's credentials and target to operate. You have to se
 
 LinkeBot is not affiliated with, sponsored, authorised or endorsed by Microsoft Corporation, LinkedIn or any of their affiliates or subsidiaries. This is an independent and unofficial project.
 
-LinkeBot **violates LinkedIn's User Agreement** Section 8.2 ("_Don’ts_"), paragraphs 2 and 13, and, for this reason, LinkedIn may temporarily or even permanently ban accounts using LinkeBot.
+LinkeBot **violates** LinkedIn's User Agreement Section 8.2 ("_Don’ts_"), paragraphs 2 and 13, and, for this reason, LinkedIn may temporarily or even permanently ban accounts using LinkeBot.
