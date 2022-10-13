@@ -122,11 +122,35 @@ class LinkeBot:
         posts_published = len(posts)
         print("LinkeBot found "+str(posts_published)+" posts published by the target.")
 
-        # clicks the "like" button for every unclicked post published by the target
+        # clicks the "like" button for every unclicked post published by the target (the "unclicked" buttons contain the label 'false' 
+        # for the 'aria-pressed' elements)
         for p in range(posts_published):
             like_button = bot.find_element(By.XPATH, "//button[contains(@class, 'social-actions-button') and contains(@aria-pressed, 'false')]") 
             like_button.click()
             time.sleep(2)
+
+
+    def read_posts(self): # WORK IN PROGRESS!!
+        bot = self.bot
+        posts_column_container = WebDriverWait(bot, 30).until(EC.presence_of_element_located((By.ID, "main")))
+        posts_column = posts_column_container.find_element(By.XPATH, "//div[contains(@class, 'pv-recent-activity-detail')]")
+        posts = posts_column.find_elements(By.XPATH, "//div[contains(@class, 'ember-view') and contains(@class, 'occludable-update')]")
+
+        # scrolls down to load more posts of the target
+        for s in range(1, 3):
+            bot.execute_script('window.scrollTo(0, document.body.scrollHeight)') # NOT SURE IT WORKS ...
+            time.sleep(1)
+
+        # counts and shows the number of posts published in "Recent Activities" by the target
+        posts_published = len(posts)
+        print("LinkeBot found "+str(posts_published)+" posts published by the target.")
+
+        # "reads" the text of every post published by the target
+        for p in range(posts_published):
+            post_text_container = bot.find_element(By.XPATH, "//div[contains(@dir, 'ltr')]")
+            post_text = post_text_container.find_element(By.XPATH, "//span[contains(@dir, 'ltr')]")
+            print(str(post_text)) # HERE SOMETHING IS NOT WORKING!!!
+            time.sleep(1)
 
 
 
