@@ -13,7 +13,7 @@ This bot is also designed to reach the profile of a target - whose address has t
 
 ## Driver Setup
 
-Linkebot uses 'geckodriver' so download the [latest driver](https://github.com/mozilla/geckodriver/releases). 
+Linkebot uses 'geckodriver' so download the [latest version](https://github.com/mozilla/geckodriver/releases). 
 
 
 ## Additional requiements setup
