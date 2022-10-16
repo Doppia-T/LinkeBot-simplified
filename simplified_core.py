@@ -97,14 +97,12 @@ class LinkeBot:
         bot.get(target)
 
 
-    def get_target_activities(self, target):
+    def reach_target_activities(self, target):
         bot = self.bot
 
         # waits until the profile picture in the profile page - which contains the particular class 'pv-top-card-profile ...' - is 
         # displayed before starting the process of going to the page listing the "recent activities" of the "taget" (plus, it waits 
         # for a second for more suspense) 
-        # ACTUALLY, IT LIKES ONLY THE FIRST 10. OTHERS DO NOT GET COUNTED - AND LIKED - BECAUSE THEY DON'T GET INITIALLY LOADED. 
-        # A 'scroll-down' ACTIVITY SHOULD BE INCLUDED.
         try:
             WebDriverWait(bot, 30).until(EC.presence_of_element_located((By.XPATH, "//img[contains(@class, 'pv-top-card-profile-picture__image pv-top-card-profile-picture__image--show ember-view')]")))
             time.sleep(1)
@@ -153,7 +151,7 @@ LikerBot.login()
 LikerBot.reach_target(LinkeTarget)
 
 # goes to the "recent activites" of the target
-LikerBot.get_target_activities(LinkeTarget)
+LikerBot.reach_target_activities(LinkeTarget)
 
 # starts liking the posts of the "target"
 LikerBot.like_all_posts()
