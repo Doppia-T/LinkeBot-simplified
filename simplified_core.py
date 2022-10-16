@@ -134,7 +134,20 @@ class LinkeBot:
             like_button.click()
             time.sleep(random.randint(2, 10))
 
+    def like_posts_with_keyword(self):
+        bot = self.bot
+        posts_column_container = WebDriverWait(bot, 30).until(EC.presence_of_element_located((By.ID, "main")))
+        posts_column = posts_column_container.find_element(By.XPATH, "//div[contains(@class, 'pv-recent-activity-detail')]")
+        posts = posts_column.find_elements(By.XPATH, "//div[contains(@class, 'ember-view') and contains(@class, 'occludable-update')]")
+        
+        # counts and shows the number of posts published in "Recent Activities" by the target
+        posts_published = len(posts)
+        print("LinkeBot found "+str(posts_published)+" posts published by the target.")
+        
+        for p in range(post_publshed):
+            post_text = post_text_container = bot.find_element(By.XPATH, "//div[contains(@dir, 'ltr')]")
 
+        
 
 # starts process of getting login credentials
 LinkeUsername = get_LinkeID()
