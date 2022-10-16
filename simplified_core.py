@@ -145,7 +145,8 @@ class LinkeBot:
         print("LinkeBot found "+str(posts_published)+" posts published by the target.")
         
         for p in range(post_publshed):
-            post_text = post_text_container = bot.find_element(By.XPATH, "//div[contains(@dir, 'ltr')]")
+            post_text_container = bot.find_element(By.XPATH, "//div[contains(@dir, 'ltr')]")
+            print(str(post_text_container))
 
         
 
