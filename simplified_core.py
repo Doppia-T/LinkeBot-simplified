@@ -1,16 +1,18 @@
 # gets libraries needed
-from xml.dom.minidom import Element
+#from bs4 import BeautifulSoup # TO BE IMPLEMENTED SOON
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+
 import os
+#import pandas # TO BE IMPLEMENTED SOON
 import random
 import sys
 import time
+
 
 
 # gets username from an external file called "LinCred"
@@ -25,6 +27,7 @@ def get_LinkeID():
                 LinkeUsername = spl_id_line
                 return LinkeUsername
 
+
 # gets password from an external file called "LinCred"
 # quite raw method of getting the credential from a .txt file
 def get_LinkePSS():
@@ -36,6 +39,7 @@ def get_LinkePSS():
                 spl_pss_line = pss_line.split(spl_word,1)[1]
                 LinkePassword = spl_pss_line
                 return LinkePassword
+
 
 # gets target profile from an external file called "LinTarg" quite raw method of getting the target 
 # from a .txt file
@@ -113,7 +117,7 @@ class LinkeBot:
             print("Loading is taking too much time!")
 
 
-    def like_posts(self):
+    def like_all_posts(self):
         bot = self.bot
         posts_column_container = WebDriverWait(bot, 30).until(EC.presence_of_element_located((By.ID, "main")))
         posts_column = posts_column_container.find_element(By.XPATH, "//div[contains(@class, 'pv-recent-activity-detail')]")
@@ -128,7 +132,7 @@ class LinkeBot:
         for p in range(posts_published):
             like_button = bot.find_element(By.XPATH, "//button[contains(@class, 'social-actions-button') and contains(@aria-pressed, 'false')]") 
             like_button.click()
-            time.sleep(2)
+            time.sleep(random.randint(2, 10))
 
 
 
@@ -138,15 +142,16 @@ LinkePassword = get_LinkePSS()
 LinkeTarget = get_LinkeTGT()
 
 
+
 # starts process of logging in with the credentials previously obtained
-TestBot = LinkeBot(LinkeUsername,LinkePassword)
-TestBot.login()
+LikerBot = LinkeBot(LinkeUsername,LinkePassword)
+LikerBot.login()
 
 # goes to "target" page
-TestBot.reach_target(LinkeTarget)
+LikerBot.reach_target(LinkeTarget)
 
 # goes to the "recent activites" of the target
-TestBot.get_target_activities(LinkeTarget)
+LikerBot.get_target_activities(LinkeTarget)
 
 # starts liking posts of the "target"
-TestBot.like_posts()
+LikerBot.like_all_posts()
